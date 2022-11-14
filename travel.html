@@ -1,0 +1,251 @@
+<html>
+
+<head>
+   <style type="text/css">
+      body {
+         background-color: #e26565;
+         background-image: url('/images/Flight.jpg');
+      }
+
+      #header {
+         height: 100px;
+         margin-left: 10px;
+         margin-top: 10px;
+         width: 98%;
+         color: rgb(255, 115, 0);
+      }
+
+
+      #Section1 {
+         background-color: aquamarine;
+         width: 33%;
+         height: 240px;
+         margin-left: 10px;
+         float: left;
+         border: 2px solid white;
+      }
+
+      Section2 {
+         background-color: aquamarine;
+         width: 70%;
+         height: 240px;
+         float: left;
+         border: 2px solid white;
+      }
+
+      
+      Section3 {
+         background-color: aquamarine;
+         width: 70%;
+         height: 240px;
+         float: left;
+         border: 2px solid white;
+      }
+
+
+      #Section2 {
+         display: none
+      }
+
+      #Section3 {
+         display: none
+      }
+   </style>
+</head>
+
+<body>
+
+   <h1>Booking Details </h1>
+   <form name="myform" onsubmit="return Validpassword()" action="newHTML.html" method="post">
+
+      <div id="Section1">
+         <!--Section 1 Radio button code starts-->
+         <br><b> Choose your destination: </b><br>
+              
+          <!--<button type="button" onclick=" checkButton()"> Submit </button>-->
+         <input type="radio" name="season" id="Oneway" value="Oneway"onclick="checkButton()"> Oneway <br> 
+         <input type="radio" name="season" id="roundtrip" value="Round trip"onclick="checkButton()"> Round trip <br> 
+       <br>     
+         
+          
+
+     <!--Radio button code Ends-->
+         <h3 id="disp" style="color:green"> </h3>
+         <h4 id="error" style="color:red"> </h4>
+      </div>
+
+
+      
+      <!--Section  1 Ends -->
+      <div id="Section2">
+         <!--Section  2 - Make invisible until radio button selected-->
+
+         Enter your name: <input type="text" name="myname" id="newmine" pattern="[a-zA-Z]{3,}"
+            title="Only Alphabets with minimum three"><br><br>
+
+         Password: <input type="password" name="pass1"> <br><br>
+         Confirm Password:<input type="password" name="cpass1"><br><br>
+
+         Enter your email id: <input type="text" name="myemail" id="newmine"><br><br>
+         Enter your DOB: <input type="date" name="mydate" id="newmine"><br><br>
+
+         Enter your Mobile Number: <input type="number" name="mobile" id="newmine"><br><br>
+         <input type="submit" value="Click Here">
+
+         <!--Section  2 Ends -->
+         <!--section2.style.display = 'block'; -->
+      </div>
+
+       <!--Section  2 Ends -->
+       <div id="Section3">
+         <!--Section  3 - Make invisible until radio button selected-->
+
+         From: <input type="text" name="from" id="from" >    To: <input type="text" name="to" id="to" ><br><br>
+         Departure: <input type="date" name="dep" id="dep" >    Return Date: <input type="date" name="ret" id="ret" ><br><br>
+         
+         Number of Passengers <br><br>
+         Adult: <input type="number" name="adult" id="adult" >    Children: <input type="number" name="child" id="child" ><br><br>
+
+         Passenger 1 Details<br>
+         Name: <input type="text" name="Pass1" id="Pass1" >   Gender: <input type="radio" name="gen1" id="gen1" >Male 
+         <input type="radio" name="gen1" id="gen1" >Femal
+         Age:<input type="text" name="age1" id="age1" > 
+         <br><br>
+         Passenger 2 Details<br>
+         Name: <input type="text" name="Pass2" id="Pass2" >   Gender: <input type="radio" name="gen2" id="gen2" >Male 
+         <input type="radio" name="gen2" id="gen2" >Femal
+         Age:<input type="text" name="age2" id="age2" > 
+         <br><br>
+         Passenger 3 Details<br>
+         Name: <input type="text" name="Pass3" id="Pass3" >   Gender: <input type="radio" name="gen3" id="gen3" >Male 
+         <input type="radio" name="gen3" id="gen3" >Femal
+         Age:<input type="text" name="age3" id="age3" > 
+         <br><br>
+         
+         Food Type 
+         
+<select id = "myList"  >
+<option> ---Choose --- </option>
+<option> Veg</option>
+<option> Non Veg </option>
+ 
+</select>
+
+
+Travel Class
+<select id = "myList2" >
+<option> ---Choose --- </option>
+<option> First Class</option>
+<option> Second Class </option>
+ 
+</select><br>
+
+         Enter your name: <input type="text" name="myname" id="newmine" pattern="[a-zA-Z]{3,}"
+            title="Only Alphabets with minimum three"><br><br>
+
+         Password: <input type="password" name="pass1"> <br><br>
+         Confirm Password:<input type="password" name="cpass1"><br><br>
+
+         Enter your email id: <input type="text" name="myemail" id="newmine"><br><br>
+         Enter your DOB: <input type="date" name="mydate" id="newmine"><br><br>
+
+         Enter your Mobile Number: <input type="number" name="mobile" id="newmine"><br><br>
+         <input type="submit" value="Click Here">
+         <!--Section  2 Ends -->
+         <!--section2.style.display = 'block'; -->
+      </div>
+   </form>
+
+   <script>
+
+
+// ✅ Set radio button to checked
+
+     
+
+      function Validpassword() {
+         let password1 = document.myform.pass1.value;
+         let cpassword1 = document.myform.cpass1.value;
+         if (password1.length < 6) {
+            alert("enter the 6 charcters")
+            return false;
+         }
+         if (password1 == cpassword1) {
+            return true;
+         }
+         else {
+            alert("Both must be same")
+            return false;
+         }
+
+         let username = document.getElementById("newmine").value;
+
+         if (username == "null" || username == "") {
+            alert("enter correctname");
+            return false;
+         }
+
+         let mymail = document.myform.myemail.value;
+         let attherate = mymail.indexOf("@");
+         let atthedot = mymail.lastIndexOf(".");
+
+         if (attherate < 1 || atthedot < attherate + 2 || atthedot >= mymail.length) {
+            alert("enter the correct email");
+            return false;
+         }
+
+         let curdate = new Date();
+         let dob2 = Date(document.myform.mydate.value)
+
+         if (dob2 > curdate) {
+            alert("enter the correct DOB");
+            return false;
+         }
+
+         let mobile1 = (document.myform.mobile.value)
+
+         if (mobile1.length == 10) {
+            return true
+         }
+         else {
+            alert("enter the correct 10 digits number");
+            return false;
+         }
+
+
+      }
+      function checkButton() {
+         var getSelectedValue = document.querySelector( 'input[name="season"]:checked'); 
+             
+           if(getSelectedValue != null) { 
+               document.getElementById("disp").innerHTML = getSelectedValue.value  + " season is selected"; 
+           } 
+           else { 
+               document.getElementById("error").innerHTML   = "*You have not selected any season"; 
+           } 
+
+         if (document.getElementById('Oneway').checked) {
+            document.getElementById("disp").innerHTML = document.getElementById("Oneway").value + " radio button is checked";
+            document.getElementById("Section3").style.display = "none";
+            document.getElementById("Section2").style.display = "block";
+ 
+         }
+         else if (document.getElementById('roundtrip').checked) {
+            document.getElementById("Oneway").checked = false;
+
+            document.getElementById("disp").innerHTML = document.getElementById("roundtrip").value + " radio button is checked";
+            document.getElementById("Section2").style.display = "none";
+            document.getElementById("Section3").style.display = "block";
+         }
+         else {
+            document.getElementById("error").innerHTML
+               = "You have not selected a destination";
+         }
+
+      }
+
+   </script>
+
+ </body>
+
+</html>
